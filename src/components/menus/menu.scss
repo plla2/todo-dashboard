@@ -1,0 +1,21 @@
+@import "../../colors.scss";
+
+.header {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .title {
+    text-transform: uppercase;
+    color: $text_grey;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 2rem;
+    font-size: x-large;
+    letter-spacing: 1px;
+  }
+  .classActive {
+    color: $link_text;
+    background-color: $link_bg;
+    border-right: 4px solid $link_border;
+  }
+}
