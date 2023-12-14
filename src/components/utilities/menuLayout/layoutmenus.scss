@@ -1,0 +1,9 @@
+@import "../../../colors.scss";
+
+.menu {
+  background-color: $menu_bg;
+  height: 100vh;
+  width: 16%;
+  position: fixed;
+  z-index: 20;
+}
