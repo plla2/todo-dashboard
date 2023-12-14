@@ -3,9 +3,23 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Pretendard" !important;
+  text-decoration: none;
+  ul,
+  ol {
+    list-style: none;
+  }
+  a {
+    color: inherit;
+  }
 }
 
 @font-face {
   font-family: Pretendard;
   src: url(./assets/Fonts/Pretendard-Regular.subset.woff2);
+  font-weight: normal;
+}
+@font-face {
+  font-family: Pretendard;
+  src: url(./assets/Fonts/Pretendard-Bold.subset.woff2);
+  font-weight: bold;
 }
