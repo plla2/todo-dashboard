@@ -18,4 +18,16 @@
     background-color: $link_bg;
     border-right: 4px solid $link_border;
   }
+  .btn {
+    background-color: $btn_bg;
+    padding: 0.75rem 1.5rem;
+    margin: 2rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: #fdf7e4;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
 }
