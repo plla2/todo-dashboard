@@ -23,11 +23,24 @@
     padding: 0.75rem 1.5rem;
     margin: 2rem 1rem;
     border-radius: 10px;
-    cursor: pointer;
-    border: none;
-    outline: none;
     color: #fdf7e4;
     font-weight: bold;
     letter-spacing: 1px;
+  }
+  .openBtn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 0.5rem;
+    .openDir {
+      transform: rotate(180deg);
+      transition: 0.2s ease-in;
+    }
+  }
+  .arrowBtn {
+    width: 0.75rem;
+    height: 0.75rem;
+    margin: 0 0.5rem;
+    transform: rotate(90deg);
   }
 }

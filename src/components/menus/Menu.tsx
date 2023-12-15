@@ -1,6 +1,7 @@
 import AddTaskBtn from "../utilities/AddTaskBtn";
 import LayoutMenus from "../utilities/menuLayout/LayoutMenus";
 import NavLinks from "./NavLinks";
+import Directories from "./directories/Directories";
 import "./menu.scss";
 
 const Menu = () => {
@@ -10,6 +11,7 @@ const Menu = () => {
         <h1 className="title">Todo</h1>
         <AddTaskBtn />
         <NavLinks />
+        <Directories />
       </header>
     </LayoutMenus>
   );
