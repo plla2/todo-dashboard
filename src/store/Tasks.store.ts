@@ -23,6 +23,19 @@ const getSavedDir = (): string[] => {
   } else {
     dirList.push("Main");
   }
+
+  if (localStorage.getItem("tasks")) {
+    const savedTasksList = JSON.parse(localStorage.getItem("tasks")!);
+    const dirNotSaved: string[] = [];
+    savedTasksList.forEach((task: Task) => {
+      if (!dirList.includes(task.dir)) {
+        if (!dirNotSaved.includes(task.dir)) {
+          dirNotSaved.push(task.dir);
+        }
+      }
+    });
+    dirList = [...dirList, ...dirNotSaved];
+  }
   return dirList;
 };
 
