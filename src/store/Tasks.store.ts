@@ -1,3 +1,4 @@
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Task } from "../interface";
 
 const defaultTask: Task[] = [
@@ -49,8 +50,15 @@ const initialState: {
   directories: getSavedDir(),
 };
 
-const tasksSlice = createSlice({
+export const tasksSlice = createSlice({
   name: "tasks",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    addNewTask(state, action: PayloadAction<Task>) {
+      state.tasks = [action.payload, ...state.tasks];
+    },
+  },
 });
+
+export const tasksActions = tasksSlice.actions;
+export default tasksSlice.reducer;
