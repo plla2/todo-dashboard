@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { useAppSelector } from "../../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import DirectoryModal from "../../utilities/DirectoryModal";
+import { tasksActions } from "../../../store/Tasks.store";
 
 const ContentsDirectories = () => {
   const directories = useAppSelector((store) => store.tasks.directories);
+  const dispatch = useAppDispatch();
   const [dirModalIsShow, setDirModalIsShow] = useState(false);
 
   const dirModalToggle = () => {
@@ -14,8 +16,15 @@ const ContentsDirectories = () => {
     setDirModalIsShow(false);
   };
 
-  const createNewDir = (inputValue: string) => {};
-
+  const createNewDir = (inputValue: string) => {
+    const newDirectory = inputValue.trim();
+    if (newDirectory.length === 0) return;
+    const directoryNoExist = directories.every((dir) => dir !== newDirectory);
+    if (directoryNoExist) {
+      dispatch(tasksActions.addNewDir(newDirectory));
+    }
+  };
+  console.log(directories);
   return (
     <>
       {dirModalIsShow && (
