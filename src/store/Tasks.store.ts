@@ -57,6 +57,9 @@ export const tasksSlice = createSlice({
     addNewTask(state, action: PayloadAction<Task>) {
       state.tasks = [action.payload, ...state.tasks];
     },
+    addNewDir(state, action: PayloadAction<string>) {
+      state.directories = [action.payload, ...state.directories];
+    },
   },
 });
 
