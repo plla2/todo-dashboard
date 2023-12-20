@@ -33,30 +33,28 @@ const DirectoryModal = (props: Props) => {
 
   console.log(newDirName);
   return (
-    <>
-      <div>
-        <Modal onClose={props.onClose} title={props.title}>
-          <form>
-            <div>
-              <label htmlFor="dir-name">Title</label>
-              <input
-                type="text"
-                name="dir-name"
-                id="dir-name"
-                placeholder="폴더 이름을 입력해주세요."
-                value={newDirName}
-                onChange={({ target }) => setNewDirName(target.value)}
-                onInput={({ currentTarget }) =>
-                  checkDirNameExist(currentTarget.value)
-                }
-              />
-              {errorDirName && <div>이미 존재하는 폴더입니다!!</div>}
-            </div>
-            <button onClick={confirmDirName}>{props.btnText}</button>
-          </form>
-        </Modal>
-      </div>
-    </>
+    <Modal onClose={props.onClose} title={props.title}>
+      <form>
+        <div className="inputs">
+          <label htmlFor="dir-name">Title</label>
+          <input
+            type="text"
+            name="dir-name"
+            id="dir-name"
+            placeholder="폴더 이름을 입력해주세요."
+            value={newDirName}
+            onChange={({ target }) => setNewDirName(target.value)}
+            onInput={({ currentTarget }) =>
+              checkDirNameExist(currentTarget.value)
+            }
+          />
+          {errorDirName && (
+            <div className="existInfo">이미 존재하는 폴더입니다!!</div>
+          )}
+        </div>
+        <button onClick={confirmDirName}>{props.btnText}</button>
+      </form>
+    </Modal>
   );
 };
 

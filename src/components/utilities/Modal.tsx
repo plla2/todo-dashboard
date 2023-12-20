@@ -1,3 +1,4 @@
+import ReactDOM from "react-dom";
 import { ReactComponent as SvgX } from "../../assets/x.svg";
 import "./modal.scss";
 
@@ -14,29 +15,30 @@ const ModalContent = (props: Props) => {
     }
   };
   return (
-    <div onClick={closeModalHandler}>
-      <section>
-        <h2>{props.title}</h2>
-        <button className="closeBtn">
-          <SvgX />
-        </button>
-        {props.children}
+    <div onClick={closeModalHandler} className="backdrop">
+      <section className="contents">
+        <div className="modalHeader">
+          <h2 className="modalTitle">{props.title}</h2>
+          <button className="closeBtn" onClick={props.onClose}>
+            <SvgX />
+          </button>
+        </div>
+        <div className="modalChildren">{props.children}</div>
       </section>
     </div>
   );
 };
 
+const modalElement = document.getElementById("modal")! as HTMLElement;
+
 const Modal = (props: Props) => {
-  return (
-    <>
-      <div>
-        <ModalContent
-          children={props.children}
-          onClose={props.onClose}
-          title={props.title}
-        />
-      </div>
-    </>
+  return ReactDOM.createPortal(
+    <ModalContent
+      children={props.children}
+      onClose={props.onClose}
+      title={props.title}
+    />,
+    modalElement
   );
 };
 
