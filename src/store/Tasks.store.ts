@@ -60,6 +60,22 @@ export const tasksSlice = createSlice({
     addNewDir(state, action: PayloadAction<string>) {
       state.directories = [action.payload, ...state.directories];
     },
+    editDirName(
+      state,
+      action: PayloadAction<{ previousDirName: string; newDirName: string }>
+    ) {
+      const newDirName: string = action.payload.newDirName;
+      const previousName: string = action.payload.previousDirName;
+      const directoryExist = state.directories.includes(newDirName);
+      if (directoryExist) return;
+      const dirIndex = state.directories.indexOf(previousName);
+      state.directories[dirIndex] = newDirName;
+      state.tasks.forEach((task) => {
+        if (task.dir === previousName) {
+          task.dir = newDirName;
+        }
+      });
+    },
   },
 });
 
