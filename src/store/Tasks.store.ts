@@ -76,6 +76,11 @@ export const tasksSlice = createSlice({
         }
       });
     },
+    deleteDir(state, action: PayloadAction<string>) {
+      const selectDir = action.payload;
+      state.directories = state.directories.filter((dir) => dir !== selectDir);
+      state.tasks = state.tasks.filter((task) => task.dir !== selectDir);
+    },
   },
 });
 
