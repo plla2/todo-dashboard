@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import DirectoryModal from "../../utilities/DirectoryModal";
 import { tasksActions } from "../../../store/Tasks.store";
+import ItemDirectory from "./ItemDirectory";
 
 const ContentsDirectories = () => {
   const directories = useAppSelector((store) => store.tasks.directories);
@@ -37,7 +38,7 @@ const ContentsDirectories = () => {
       )}
       <ul>
         {directories.map((dir: string) => (
-          <button key={dir}>{dir}</button>
+          <ItemDirectory dir={dir} key={dir} />
         ))}
       </ul>
       <button onClick={dirModalToggle}>+추가</button>
